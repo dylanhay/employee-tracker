@@ -1,11 +1,18 @@
-INSERT INTO roles (title, salary)
+INSERT INTO departments (name)
 VALUES
-  ('Guitarist', 100000),
-  ('Bassist', 100000),
-  ('Drummer', 90000),
-  ('Manager', 80000),
-  ('Producer', 80000),
-  ('Keyboardist', 80000);
+  ('Melody'),
+  ('Rhythm'),
+  ('Management'),
+  ('Production');
+
+INSERT INTO roles (title, salary, department_id)
+VALUES
+  ('Guitarist', 100000, 1),
+  ('Bassist', 100000, 2),
+  ('Drummer', 90000, 2),
+  ('Manager', 80000, 3),
+  ('Producer', 80000, 4),
+  ('Keyboardist', 80000, 1);
 
 INSERT INTO employees (first_name, last_name, role_id)
 VALUES
