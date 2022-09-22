@@ -19,8 +19,37 @@ const db = mysql.createConnection(
   console.log("Connected to the company database.")
 );
 
-db.query(`SELECT * FROM employees`, (err, rows) => {
-  console.log(rows);
+// GET all employees
+// db.query(`SELECT * FROM employees`, (err, rows) => {
+//   console.log(rows);
+// });
+
+// GET a single employee
+// db.query(`SELECT * FROM employees WHERE id = 1`, (err, row) => {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log(row);
+// });
+
+// Delete a candidate
+// db.query(`DELETE FROM employees WHERE id = ?`, 2, (err, result) => {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log(result);
+// });
+
+// Create a candidate
+const sql = `INSERT INTO employees (id, first_name, last_name) 
+              VALUES (?,?,?)`;
+const params = [2, 'Paul', 'McCartney'];
+
+db.query(sql, params, (err, result) => {
+  if (err) {
+    console.log(err);
+  }
+  console.log(result);
 });
 
 // Default response for any other request (Not Found)
