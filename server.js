@@ -1,5 +1,5 @@
-const express = require('express');
-const mysql = require('mysql2');
+const express = require("express");
+const mysql = require("mysql2");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -11,13 +11,17 @@ app.use(express.json());
 // Connect to database
 const db = mysql.createConnection(
   {
-    host: 'localhost',
-    user: 'root',
-    password: 'vancity#1',
-    database: 'company'
+    host: "localhost",
+    user: "root",
+    password: "vancity#1",
+    database: "company",
   },
-  console.log('Connected to the company database.')
+  console.log("Connected to the company database.")
 );
+
+db.query(`SELECT * FROM employees`, (err, rows) => {
+  console.log(rows);
+});
 
 // Default response for any other request (Not Found)
 app.use((req, res) => {
