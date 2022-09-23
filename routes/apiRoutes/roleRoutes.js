@@ -1,82 +1,41 @@
-const express = require("express");
-const router = express.Router();
-const db = require("../../db/connection");
-const inputCheck = require("../../utils/inputCheck");
+const db = require("../db/connection");
+const cTable = require("console.table");
+
+const {cycle} = require("./index");
+const { addRoleQ } = require("../utils/prompts");
 
 // Get all roles
-router.get("/roles", (req, res) => {
+const viewRoles = () => {
   const sql = `SELECT * FROM roles`;
-  db.query(sql, (err, rows) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
-      return;
-    }
-    res.json({
-      message: "success",
-      data: rows,
-    });
-  });
-});
-
-// Get role by ID
-router.get("/role/:id", (req, res) => {
-  const sql = `SELECT * FROM roles WHERE id = ?`;
-  const params = [req.params.id];
-  db.query(sql, params, (err, row) => {
-    if (err) {
-      res.status(400).json({ error: err.message });
-      return;
-    }
-    res.json({
-      message: "success",
-      data: row,
-    });
-  });
-});
+  db.query(sql, (err, row) => {
+      if (err) {
+          console.log(err);
+      }
+      else {
+          const table = cTable.getTable(row);
+          console.log(table);
+          returnToMainMenu();
+      }
+  })
+};
 
 // Create a new role
-router.post("/role", ({ body }, res) => {
-  const errors = inputCheck(body, "title", "salary", "department_id");
-  if (errors) {
-    res.status(400).json({ error: errors });
-    return;
-  }
-  const sql = `INSERT INTO roles (title, salary, department_id)
-        VALUES (?,?,?)`;
-  const params = [body.title, body.salary, body.department_id];
+const addRole = () => {
+  const sql = `INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)`
+  inquirer.prompt(addRoleQ).then(
+      (data) => {
+          const params = [data.role, data.salary, data.departmentOfRole]
+          db.query(sql, params, (err, result) => {
+              if (err) {
+                  console.log(err);
+              }
+              else {
+                  console.log("Success");
+                  cycle();
+              };
+          })
+      }
+  )
+};
 
-  db.query(sql, params, (err, result) => {
-    if (err) {
-      res.status(400).json({ error: err.message });
-      return;
-    }
-    res.json({
-      message: "success",
-      data: body,
-    });
-  });
-});
-
-// Delete role by ID
-router.delete("/role/:id", (req, res) => {
-  const sql = `DELETE FROM roles WHERE id = ?`;
-  const params = [req.params.id];
-  db.query(sql, params, (err, result) => {
-    if (err) {
-      res.status(400).json({ error: res.message });
-      // checks if anything was deleted
-    } else if (!result.affectedRows) {
-      res.json({
-        message: "Role not found",
-      });
-    } else {
-      res.json({
-        message: "deleted",
-        changes: result.affectedRows,
-        id: req.params.id,
-      });
-    }
-  });
-});
-
-module.exports = router;
+module.exports = {viewRoles, addRole};
