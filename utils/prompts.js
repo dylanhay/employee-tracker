@@ -13,7 +13,7 @@ const initialQ = [
       "Add a department",
       "Add a role",
       "Add an employee",
-      "Update an employee",
+      "Update an employee role",
       "EXIT",
     ],
   },
@@ -106,7 +106,7 @@ const updateEmployeeQ = [
         message: "Which employee role would you like to update?",
         choices: function () {
             return new Promise (function (resolve, reject) {
-                const sql = `SELECT employees.id, CONCAT (employees.first_name, ' ', employees.last_name) FROM employees`;
+                const sql = `SELECT employees.id, CONCAT (employees.first_name, ' ', employees.last_name) employees FROM employees`;
                 db.query(sql, (err, row) => {
                     if (err) {
                         return reject(err);

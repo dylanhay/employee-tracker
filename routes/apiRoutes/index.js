@@ -7,7 +7,7 @@ const {
   addEmployeeQ,
   updateEmployeeQ,
   addRoleQ,
-  initialQ
+  initialQ,
 } = require("../../utils/prompts");
 
 // Starting
@@ -43,7 +43,7 @@ const starterReq = (data) => {
   }
 };
 
-// Function to return user to main menu after executing other actions
+// cycle back to initial question
 const cycle = () => {
   inquirer.prompt(initialQ).then(starterReq);
 };
@@ -65,7 +65,7 @@ const viewDepartments = () => {
 };
 
 // Create a new department
-const addDepartment = (data) => {
+const addDepartment = () => {
   const sql = `INSERT INTO  departments (name) VALUES (?)`;
   inquirer.prompt(addDepartmentQ).then((data) => {
     db.query(sql, data.department, (err, result) => {
@@ -81,7 +81,11 @@ const addDepartment = (data) => {
 
 // Get all roles
 const viewRoles = () => {
-  const sql = `SELECT * FROM roles`;
+  const sql = `SELECT roles.id, roles.title, roles.salary, departments.name
+                AS department
+                FROM roles 
+                LEFT JOIN departments
+                ON roles.department_id = departments.id`;
   db.query(sql, (err, row) => {
     if (err) {
       console.log(err);
@@ -129,8 +133,8 @@ const viewEmployees = () => {
 
 // Add new employee
 const addEmployee = () => {
-  const sql = `INSERT INTO employees (first_name, last_name)
-                  VALUES (?,?)`;
+  const sql = `INSERT INTO employees (first_name, last_name, role_id)
+                  VALUES (?,?,?)`;
   inquirer.prompt(addEmployeeQ).then((data) => {
     // Manager id will either be the id of another employee or null indicating they have no manager
     const params = [data.first_name, data.last_name, data.role_id];
