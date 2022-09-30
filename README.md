@@ -33,6 +33,6 @@ Node.js and MySQL must be installed to run this application locally.
 * Enter "npm start" in the command line to launch the application
 
 ## Walkthrough Video
-
+https://drive.google.com/file/d/1vyQJcpvRz6HpzX2Ofv_vht2ljqCMVXIk/view
 ## Contribution
 Made with ❤️ by Dylan Hay
