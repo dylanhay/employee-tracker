@@ -56,7 +56,6 @@ const viewDepartments = () => {
       res.status(500).json({ error: err.message });
       return;
     } else {
-      // console.log('yo');
       const table = cTable.getTable(row);
       console.log(table);
       cycle();
@@ -136,7 +135,6 @@ const addEmployee = () => {
   const sql = `INSERT INTO employees (first_name, last_name, role_id)
                   VALUES (?,?,?)`;
   inquirer.prompt(addEmployeeQ).then((data) => {
-    // Manager id will either be the id of another employee or null indicating they have no manager
     const params = [data.first_name, data.last_name, data.role_id];
     db.query(sql, params, (err, result) => {
       if (err) {

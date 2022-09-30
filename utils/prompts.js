@@ -43,11 +43,10 @@ const addRoleQ = [
   {
     type: "list",
     name: "departmentOfRole",
-    message: "Choose a department for the new role",
+    message: "Select a department for the new role",
     choices: function () {
       return new Promise(function (resolve, reject) {
         const sql = `SELECT * FROM departments`;
-        // db query
         db.query(sql, (err, row) => {
           if (err) {
             return reject(err);
