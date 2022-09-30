@@ -12,6 +12,7 @@ A command-line application that manages a company's employee database using Node
 ## Built With
 * Node.js
 * MySQL
+* MySQL2
 * Inquirer
 * console.table
 
