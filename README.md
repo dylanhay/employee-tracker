@@ -30,9 +30,10 @@ Node.js and MySQL must be installed to run this application locally.
 * Enter `source db/schema.sql` in MySQL to create the tables and associated fields
 * Enter `source db/seeds.sql` in MySQL to seed the tables with the provided sample data (optional)
 
-* Enter "npm start" in the command line to launch the application
+* Enter `npm start` in the command line to launch the application
 
 ## Walkthrough Video
 https://drive.google.com/file/d/1vyQJcpvRz6HpzX2Ofv_vht2ljqCMVXIk/view
+
 ## Contribution
 Made with ❤️ by Dylan Hay
