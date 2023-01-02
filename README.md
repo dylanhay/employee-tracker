@@ -23,7 +23,6 @@ https://drive.google.com/file/d/1vyQJcpvRz6HpzX2Ofv_vht2ljqCMVXIk/view
 * Node.js
 * MySQL2
 * Inquirer
-* Jest
 * console.table
 * Git
 
