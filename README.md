@@ -3,27 +3,33 @@
 ## Description
 A command-line application that manages a company's employee database using Node.js, Inquirer, and MySQL.
 
+## License  
+This application is covered under the following license. Please review the link below for additional information pertaining to the license.
+    
+![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)  
+https://www.gnu.org/licenses/gpl-3.0
+
 ## Table of Contents
-[Built With](#built-with)  
-[Installation Instructions](#installation-instructions)  
 [Walkthrough Video](#walkthrough-video)  
+[Built With](#built-with)  
+[Installation](#installation)  
 [Contribution](#contribution) 
 
+## Walkthrough Video
+https://drive.google.com/file/d/1vyQJcpvRz6HpzX2Ofv_vht2ljqCMVXIk/view
+
 ## Built With
+* JavaScript
 * Node.js
-* MySQL
 * MySQL2
 * Inquirer
+* Jest
 * console.table
+* Git
 
 ## Installation Instructions
-Node.js and MySQL must be installed to run this application locally.
-
-* Node.js can be downloaded and installed from https://nodejs.org/en/download/  
-* To initialize Node.js, enter `npm init --y` in the command line while in the root folder
 * To install the required npm packages, enter `npm install` in the command line while in the root folder
 
-* MySQL can be downloaded and installed from https://dev.mysql.com/downloads/mysql/
 * Adjust the password in connection.js to your unique password for MySQL
 * Enter `mysql -u root -p` in the command line to launch MySQL
 * Enter `source db/db.sql` in MySQL to create and move to the company database
@@ -31,9 +37,6 @@ Node.js and MySQL must be installed to run this application locally.
 * Enter `source db/seeds.sql` in MySQL to seed the tables with the provided sample data (optional)
 
 * Enter `npm start` in the command line to launch the application
-
-## Walkthrough Video
-https://drive.google.com/file/d/1vyQJcpvRz6HpzX2Ofv_vht2ljqCMVXIk/view
 
 ## Contribution
 Made with ❤️ by Dylan Hay
