@@ -13,7 +13,6 @@ https://www.gnu.org/licenses/gpl-3.0
 [Walkthrough Video](#walkthrough-video)  
 [Built With](#built-with)  
 [Installation](#installation)  
-[Testing](#testing)  
 [Contribution](#contribution) 
 
 ## Walkthrough Video
@@ -38,9 +37,6 @@ https://drive.google.com/file/d/1vyQJcpvRz6HpzX2Ofv_vht2ljqCMVXIk/view
 * Enter `source db/seeds.sql` in MySQL to seed the tables with the provided sample data (optional)
 
 * Enter `npm start` in the command line to launch the application
-
-## Testing
-* Enter `npm test` in the command line while in the root folder to run Jest
 
 ## Contribution
 Built by Dylan Hay
