@@ -27,15 +27,13 @@ https://drive.google.com/file/d/1vyQJcpvRz6HpzX2Ofv_vht2ljqCMVXIk/view
 * Git
 
 ## Installation
-* To install the required npm packages, enter `npm install` in the command line while in the root folder
-
-* Adjust the password in connection.js to your unique password for MySQL
-* Enter `mysql -u root -p` in the command line to launch MySQL
-* Enter `source db/db.sql` in MySQL to create and move to the company database
+* To install the required npm packages, enter `npm install` in the CLI
+* Adjust the user and password in connection.js to your unique user and password for MySQL
+* Enter `mysql -u root -p` in the CLI to launch MySQL
+* Enter `source db/db.sql` in MySQL to create and move to the `company` database
 * Enter `source db/schema.sql` in MySQL to create the tables and associated fields
 * Enter `source db/seeds.sql` in MySQL to seed the tables with the provided sample data (optional)
-
-* Enter `npm start` in the command line to launch the application
+* Enter `npm start` in the CLI to launch the application
 
 ## Contribution
 Built by Dylan Hay
