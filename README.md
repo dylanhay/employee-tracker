@@ -39,4 +39,4 @@ https://drive.google.com/file/d/1vyQJcpvRz6HpzX2Ofv_vht2ljqCMVXIk/view
 * Enter `npm start` in the command line to launch the application
 
 ## Contribution
-Made with ❤️ by Dylan Hay
+Built by Dylan Hay
